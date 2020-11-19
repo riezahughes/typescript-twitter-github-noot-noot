@@ -1,0 +1,36 @@
+{
+  "name": "github-twitter-bot",
+  "version": "1.0.0",
+  "description": "it's honestly a stupid thing. It's a script that tweets pull requests from githubs public repos containing classic scottish sweary wordies.",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.0.5"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.0.0"
+  },
+  "scripts": {
+    "start": "npm run build && node build/index.js",
+    "start:dev": "nodemon",
+    "build": "rimraf ./build && tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riezahughes/typescript-twitter-github-noot-noot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riezahughes/typescript-twitter-github-noot-noot/issues"
+  },
+  "homepage": "https://github.com/riezahughes/typescript-twitter-github-noot-noot#readme"
+}

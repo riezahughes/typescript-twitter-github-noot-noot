@@ -5,3 +5,5 @@ it's honestly a stupid thing. It's a script that tweets pull requests from githu
 # WHY
 
 I dunno. Typescript example? 
+
+https://khalilstemmler.com/blogs/typescript/node-starter-project/ using this to help me along.

@@ -4,6 +4,8 @@
   "description": "it's honestly a stupid thing. It's a script that tweets pull requests from githubs public repos containing classic scottish sweary wordies.",
   "main": "index.js",
   "dependencies": {
+    "@octokit/rest": "^18.0.9",
+    "@octokit/types": "^5.5.0",
     "dotenv": "^8.2.0",
     "twitter-api-client": "^1.2.1",
     "typescript": "^4.0.5"

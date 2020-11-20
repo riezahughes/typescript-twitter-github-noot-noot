@@ -24,9 +24,9 @@ const test = async () => {
       type: 'commits',
     }).then((result: searchResponse) => {
       const chosenData = result.data.items[Math.floor(Math.random() * result.data.items.length)];
-      const { title } = chosenData;
-      const { body } = chosenData;
+      const { title, body, url } = chosenData;
       console.log(`title: ${title}`);
+      console.log(url);
       console.log(body);
     });
 };

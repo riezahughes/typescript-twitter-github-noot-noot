@@ -1,14 +1,16 @@
 import { Endpoints } from '@octokit/types';
 
+require('dotenv').config();
+
 const { Octokit } = require('@octokit/rest');
 
 const { TwitterClient } = require('twitter-api-client');
 
 const twitterClient = new TwitterClient({
-  apiKey: '<YOUR-TWITTER-API-KEY>',
-  apiSecret: '<YOUR-TWITTER-API-SECRET>',
-  accessToken: '<YOUR-TWITTER-ACCESS-TOKEN>',
-  accessTokenSecret: '<YOUR-TWITTER-ACCESS-TOKEN-SECERT>',
+  apiKey: process.env.APIKEY,
+  apiSecret: process.env.APISECRET,
+  accessToken: process.env.ACCESSTOKEN,
+  accessTokenSecret: process.env.ACCESSTOKENSECRET,
 });
 
 const test = async () => {
@@ -22,13 +24,17 @@ const test = async () => {
       q: 'cunt',
       s: 'created',
       type: 'commits',
-    }).then((result: searchResponse) => {
+    }).then(async (result: searchResponse) => {
       const chosenData = result.data.items[Math.floor(Math.random() * result.data.items.length)];
-      const { title, body, url } = chosenData;
+      const { title, body, html_url } = chosenData;
+      await twitterClient.tweets.statusesUpdate({
+        status: `title: ${title} - ${html_url} - ${body}`,
+      });
       console.log(`title: ${title}`);
-      console.log(url);
+      console.log(html_url);
       console.log(body);
-    });
+    })
+      .catch((err: any) => console.log(err));
 };
 
 test();

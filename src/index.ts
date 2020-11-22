@@ -39,7 +39,7 @@ const sendTweet = async () => {
       while (!found) {
         const chosenData = result.data.items[Math.floor(Math.random() * result.data.items.length)];
         console.log(chosenData);
-        if (chosenData.title.split(' ').length < 1) {
+        if (chosenData.title.split(' ').length < 2) {
           console.log('re-rollling...');
         } else {
           title = chosenData.title;
@@ -59,6 +59,6 @@ const sendTweet = async () => {
       .catch((err: any) => console.log(err));
 };
 
-cron.schedule('*/5 * * * *', () => {
+cron.schedule('*/30 * * * *', () => {
   sendTweet();
 });
